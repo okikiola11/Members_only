@@ -3,15 +3,32 @@
 
   <h1>Posts</h1> 
     <% @posts.each do |post| %>
-      
+      <% if user_signed_in? %>
+        <strong><%= 'Author: ' + post.user.name %></strong>
+        <em><%= '@' + post.user.username %></em> <br/>
+      <% end %>
+
       <%= post.post %> <br />
-      <%= link_to 'Show', post %>
-      <%= link_to 'Edit', edit_post_path(post) %>
-      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %><br/>
+      <% if user_signed_in? %>
+        <%= link_to post do %>
+          <span class = "icon"><i class = "fa fa-link mx-2" aria-hidden = "true"></i></span>
+        <% end %>
+        <% if current_user.id == post.user_id %>
+          <%= link_to edit_post_path(post) do %>
+          <span class = "icon"><i class = "fa fa-pencil mx-2" aria-hidden = "true"></i></span>
+          <% end %>
+
+          <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <span class = "icon"><i class = "fa fa-trash-o mx-2" aria-hidden = "true"></i></span> <br/>
+          <% end %>
+        <% end %>
+      <% end %>
+
     <% end %>
   <br>
-
-  <button class="btn btn-outline-success mx-2" type="submit">
-    <%= link_to 'New Post', new_post_path %>
-  </button>
+  <% if user_signed_in? %>
+    <button class="btn btn-outline-success mx-2" type="submit">
+      <%= link_to 'New Post', new_post_path %>
+    </button>
+  <% end %>
 </div>
