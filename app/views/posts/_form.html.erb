@@ -4,11 +4,13 @@
       <%= form_with(model: post, local: true) do |form| %>
         <% if post.errors.any? %>
           <div id="error_explanation">
-            <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+            <h2 class="p-2 mb-2 bg-danger text-white">
+              <%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:
+            </h2>
 
             <ul>
               <% post.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
+                <li class="p-2 mb-2 bg-danger text-white"><%= message %></li>
               <% end %>
             </ul>
           </div>
