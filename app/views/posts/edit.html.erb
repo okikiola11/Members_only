@@ -1,6 +1,18 @@
-<h1>Editing Post</h1>
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-4 text-center bg-light py-3">
+      <h1>Editing Post</h1>
+    </div>
+  </div>
+</div>
 
 <%= render 'form', post: @post %>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-4 text-center bg-light py-3">
+      <%= link_to 'Show', @post %> |
+      <%= link_to 'Back', posts_path %>
+    </div>
+  </div>
+</div>
