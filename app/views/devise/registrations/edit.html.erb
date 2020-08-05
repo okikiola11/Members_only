@@ -7,17 +7,17 @@
         <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="form-group">
-          <%= f.label :name %><br />
+          <%= f.label :name, class: "d-flex justify-content-start" %><br />
           <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :userame %><br />
+          <%= f.label :userame, class: "d-flex justify-content-start" %><br />
           <%= f.text_field :username, autocomplete: "username", class: "form-control" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :email %><br />
+          <%= f.label :email, class: "d-flex justify-content-start" %><br />
           <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
         </div>
 
@@ -26,7 +26,7 @@
         <% end %>
 
         <div class="form-group">
-          <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+          <%= f.label :password, class: "d-flex justify-content-start" %> <i>(leave blank if you don't want to change it)</i><br />
           <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
           <% if @minimum_password_length %>
             <br />
@@ -35,7 +35,7 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :password_confirmation %><br />
+          <%= f.label :password_confirmation, class: "d-flex justify-content-start" %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
         </div>
 
