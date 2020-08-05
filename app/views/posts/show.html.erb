@@ -1,9 +1,18 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-4 rounded bg-light my-3">
 
-<p>
-  <strong>Post:</strong>
-  <%= @post.post %>
-</p>
+      <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+      <p>
+        <strong>Post:</strong>
+        <%= @post.post %>
+      </p>
+
+      <% if current_user.id == @post.user_id %>
+        <%= link_to 'Edit', edit_post_path(@post) %> |
+      <% end %> 
+        <%= link_to 'Go Back', posts_path %>
+    </div>
+  </div>
+</div>
