@@ -1,37 +1,21 @@
 <div class="container-fluid">
   <div class="row justify-content-center">
     <div class="col-4 rounded">
-      <p id="notice"><%= notice %></p>
-
+    
       <h1 class="post-heading rounded">Posts</h1> 
         <% @posts.each do |post| %>
-          <% if user_signed_in? %>
-            <strong><%= 'Author: ' + post.user.name %></strong>
-            <em><%= '@' + post.user.username %></em> <br/>
+          <% if check_user? %>
+            <strong><%= put_name(post) %></strong>
+            <em><%= put_username(post) %></em> <br/>
           <% end %>
 
           <div class="all-posts rounded">
             <%= post.post %> <br />
           </div>
           <br/>
-          <% if user_signed_in? %>
-            <%= link_to post do %>
-              <span class = "icon"><i class = "fa fa-link mx-2" aria-hidden = "true"></i></span>
-            <% end %>
-            <% if current_user.id == post.user_id %>
-              <%= link_to edit_post_path(post) do %>
-              <span class = "icon"><i class = "fa fa-pencil mx-2" aria-hidden = "true"></i></span>
-              <% end %>
-
-              <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' } do %>
-              <span class = "icon"><i class = "fa fa-trash-o mx-2" aria-hidden = "true"></i></span> <br/>
-              <% end %>
-            <% end %>
-          <% end %>
-
         <% end %>
       <br>
-      <% if user_signed_in? %>
+      <% if check_user? %>
         <button class="btn btn-outline-success mx-2" type="submit">
           <%= link_to 'New Post', new_post_path %>
         </button>

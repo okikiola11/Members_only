@@ -8,10 +8,6 @@
         <strong>Post:</strong>
         <%= @post.post %>
       </p>
-
-      <% if current_user.id == @post.user_id %>
-        <%= link_to 'Edit', edit_post_path(@post) %> |
-      <% end %> 
         <%= link_to 'Go Back', posts_path %>
     </div>
   </div>
