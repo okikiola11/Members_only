@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-4 rounded">
+    
+      <h1 class="post-heading rounded">Posts</h1> 
+        <% @posts.each do |post| %>
+          <% if check_user? %>
+            <strong><%= put_name(post) %></strong>
+            <em><%= put_username(post) %></em> <br/>
+          <% end %>
+
+          <div class="all-posts rounded">
+            <%= post.post %> <br />
+          </div>
+          <br/>
+        <% end %>
+      <br>
+      <% if check_user? %>
+        <button class="btn btn-outline-success mx-2" type="submit">
+          <%= link_to 'New Post', new_post_path %>
+        </button>
+      <% end %>
+    </div>
+  </div>
+</div>
